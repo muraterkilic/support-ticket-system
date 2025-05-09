@@ -4,29 +4,29 @@ SupportApp, kullanıcıların destek talepleri oluşturabildiği ve bu talepleri
 
 ## 🎯 Proje Amacı
 
-Bu proje, kullanıcıların destek talepleri oluşturabildiği, taleplerinin durumlarını (Açık, Yanıtlandı, Kapatıldı) takip edebildiği, yöneticilerin bu talepleri filtreleyerek yanıtlayabildiği bir sistem sunar. Gerçek dünya uygulamalarına benzer, kurumsal seviyede örnek bir yazılım geliştirme deneyimi amaçlanmıştır.
+Kullanıcıların destek talepleri oluşturup, taleplerinin durumlarını (Açık, Yanıtlandı, Kapatıldı) takip edebildiği; yöneticilerin ise bu talepleri filtreleyerek yönetebildiği kurumsal seviyede bir örnek uygulama sunar.
 
 ## 🌐 Canlı Uygulama ve API Dokümantasyonu
 
 - 🔗 **Canlı Uygulama (AWS)**: [http://18.215.159.99:8181/](http://18.215.159.99:8181/)
-- 📘 **Swagger UI (Yerel)**: [http://127.0.0.1:8081/swagger-ui/index.html#/](http://127.0.0.1:8081/swagger-ui/index.html#/)
-- 📘 **Swagger UI (Canlı - AWS)**: [http://18.215.159.99:8181/swagger-ui/index.html#/](http://18.215.159.99:8181/swagger-ui/index.html#/)
+- 📘 **Swagger UI (Yerel)**: [http://127.0.0.1:8081/swagger-ui/index.html](http://127.0.0.1:8081/swagger-ui/index.html)
+- 📘 **Swagger UI (Canlı - AWS)**: [http://18.215.159.99:8181/swagger-ui/index.html](http://18.215.159.99:8181/swagger-ui/index.html)
 
-## 🛠️ Teknolojik Gereksinimler
+## 🛠️ Kullanılan Teknolojiler
 
 ### Backend
 
 - Java 17+
-- Spring Boot 3.x
-- Spring Security (JWT ile kimlik doğrulama)
-- Spring Data JPA
+- Spring Boot 3.2.5
+- Spring Security (JWT)
+- Spring Data JPA (Hibernate)
 - PostgreSQL
-- Redis (cache)
-- RESTful API mimarisi
-- Swagger / OpenAPI dokümantasyonu
+- Spring Cache (Yerel bellek cache)
 - Lombok
 - MapStruct
-- log4j
+- Log4j (SLF4J ile)
+- Swagger / OpenAPI
+- Maven
 
 ### Frontend
 
@@ -35,36 +35,34 @@ Bu proje, kullanıcıların destek talepleri oluşturabildiği, taleplerinin dur
 - Axios
 - Material UI (MUI)
 - React Hook Form
-- Formik & Yup (form validasyon için)
+- Formik + Yup
 - Redux Toolkit
-- Vite (build ve geliştirme sunucusu)
+- Vite
 
-## 📦 Temel Modüller / Gereksinimler
+## 📦 Özellikler
 
-### 1. Kullanıcı Girişi ve Yetkilendirme
-- JWT tabanlı login/logout mekanizması
-- “User” ve “Admin” rollerine dayalı yetkilendirme
-- Yalnızca admin kullanıcılar talepleri görebilir ve yönetebilir
+### 1. Giriş ve Yetkilendirme
+- JWT tabanlı login/logout
+- Rol bazlı yetkilendirme (User / Admin)
+- Yalnızca admin kullanıcılar talepleri yönetebilir
 
 ### 2. Talep Oluşturma
 - Kullanıcılar başlık, açıklama ve kategori seçerek talep oluşturabilir
-- Talepler veritabanına kaydedilir
 
-### 3. Talep Listeleme ve Filtreleme (Admin Panel)
-- Admin talepleri durumlarına göre filtreleyebilir (Açık, Yanıtlandı, Kapatıldı)
-- Admin her talebe yanıt verebilir ve durumunu güncelleyebilir
+### 3. Talep Yönetimi (Admin Paneli)
+- Talepler durumlarına göre filtrelenebilir
+- Admin talepleri yanıtlayabilir ve güncelleyebilir
 
 ### 4. Kullanıcı Paneli
-- Kullanıcı sadece kendi taleplerini görebilir
-- Talebin güncel statüsünü ve admin yanıtını takip edebilir
+- Kullanıcı sadece kendi taleplerini görüntüleyebilir
+- Talebin güncel durumu ve admin yanıtı takip edilebilir
 
-### 5. Yazılım Mimarisi
+### 5. Mimarî ve Kod Yapısı
 - Katmanlı mimari (Controller → Service → Repository)
-- Global exception handling
-- DTO ↔ Entity dönüşümleri (MapStruct ile)
-- Clean Code prensiplerine uygun yapı
-- Loglama log4j ile console
-- Uygulamada loglama için SLF4J kullanılmıştır
+- DTO ↔ Entity dönüşümleri (MapStruct)
+- Global exception handler
+- Clean Code ilkelerine uygunluk
+- Loglama: Log4j + SLF4J
 
 ## 🚀 Projeyi Çalıştırma
 
@@ -74,4 +72,33 @@ Bu proje, kullanıcıların destek talepleri oluşturabildiği, taleplerinin dur
    ```bash
    git clone git@github.com:muraterkilic/support-ticket-system.git
    cd support-ticket-system
+   ```
 
+2. `application.yml` veya `application.properties` dosyasını kendi veritabanı ve Redis bilgilerinize göre güncelleyin.
+
+3. Backend uygulamasını başlatın:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+### Frontend (React + Vite)
+
+1. Frontend klasörüne geçin:
+   ```bash
+   cd client
+   ```
+
+2. Gerekli bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
+
+3. Uygulamayı geliştirme modunda başlatın:
+   ```bash
+   npm run dev
+   ```
+
+4. Tarayıcıdan erişin:
+   ```
+   http://localhost:3000
+   ```
