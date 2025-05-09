@@ -74,7 +74,7 @@ Kullanıcıların destek talepleri oluşturup, taleplerinin durumlarını (Açı
    cd support-ticket-system
    ```
 
-2. `application.yml` veya `application.properties` dosyasını kendi veritabanı ve Redis bilgilerinize göre güncelleyin.
+2. `application.yml` veya `application.properties` dosyasını kendi veritabanı bilgilerinize göre güncelleyin.
 
 3. Backend uygulamasını başlatın:
    ```bash
