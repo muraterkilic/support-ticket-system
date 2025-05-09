@@ -26,6 +26,7 @@ Bu proje, kullanıcıların destek talepleri oluşturabildiği, taleplerinin dur
 - Swagger / OpenAPI dokümantasyonu
 - Lombok
 - MapStruct
+- log4j
 
 ### Frontend
 
@@ -62,6 +63,8 @@ Bu proje, kullanıcıların destek talepleri oluşturabildiği, taleplerinin dur
 - Global exception handling
 - DTO ↔ Entity dönüşümleri (MapStruct ile)
 - Clean Code prensiplerine uygun yapı
+- Loglama log4j ile console
+- Uygulamada loglama için SLF4J kullanılmıştır
 
 ## 🚀 Projeyi Çalıştırma
 
