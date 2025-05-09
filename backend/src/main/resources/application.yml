@@ -6,9 +6,9 @@ spring:
     type: simple
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/supportTicket
-    username: postgres
-    password: root
+    url: jdbc:postgresql://localhost:5432/databaseName
+    username: username
+    password: password
     driver-class-name: org.postgresql.Driver
 
   jpa:
